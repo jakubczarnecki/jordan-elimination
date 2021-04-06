@@ -26,9 +26,9 @@ def jordan(matrix):
                     matrix[j][k] = matrix[j][k] - ratio * matrix[i][k]
 
     for i in range(rows):
-        if matrix[i][i] == 0 and matrix[i][rows] == 0:
+        if abs(matrix[i][i]) <= 0.000005 and abs(matrix[i][rows]) <= 0.000005:
             result = "\nUkład nieoznaczony."
-        elif matrix[i][i] == 0 and matrix[i][rows] != 0:
+        elif abs(matrix[i][i]) <= 0.000005 and abs(matrix[i][rows]) >= 0.0000050:
             result = "\nUkład sprzeczny."
         else:
             result[i] = matrix[i][rows] / matrix[i][i]
