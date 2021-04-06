@@ -3,6 +3,7 @@ import numpy as np
 def jordan(matrix):
     rows = matrix.shape[0]
     result = np.zeros(rows, dtype = 'double')
+    e = 1.0 / (10**10)
 
     for i in range(rows):
         if matrix[i][i] == 0:
@@ -26,11 +27,12 @@ def jordan(matrix):
                     matrix[j][k] = matrix[j][k] - ratio * matrix[i][k]
 
     for i in range(rows):
-        if abs(matrix[i][i]) <= 1.0 / (10**10) and abs(matrix[i][rows]) <= 1.0 / (10**10):
+        if abs(matrix[i][i]) <= e and abs(matrix[i][rows]) <= e:
             result = "\nUkład nieoznaczony."
-        elif abs(matrix[i][i]) <= 0.000005 and abs(matrix[i][rows]) >= 1.0 / (10**10):
+        elif abs(matrix[i][i]) <= e <= abs(matrix[i][rows]):
             result = "\nUkład sprzeczny."
         else:
             result[i] = matrix[i][rows] / matrix[i][i]
+    print(matrix)
 
     return result
