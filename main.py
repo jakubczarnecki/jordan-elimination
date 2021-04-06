@@ -1,6 +1,6 @@
 import math
 import numpy as np
-import pandas as pd
+import gauss_jordan_method
 from utils import file_len
 
 if __name__ == "__main__":
