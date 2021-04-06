@@ -7,6 +7,7 @@ def jordan(matrix):
     result = np.zeros(rows, dtype='double')
 
     for i in range(rows):
+        print("Macierz: \n" + str(matrix))
         if matrix[i][i] == 0.0:
             sys.exit('dzielenie przez 0')
         for j in range(rows):
@@ -16,8 +17,5 @@ def jordan(matrix):
                     matrix[j][k] = matrix[j][k] - ratio * matrix[i][k]
     for i in range(rows):
         result[i] = matrix[i][rows] / matrix[i][i]
-
-    # print(str(matrix))
-    print("\n\nWynik: " + str(result))
 
     return result
