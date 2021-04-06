@@ -1,6 +1,6 @@
 import math
 import numpy as np
-import gauss_jordan_method
+from gauss_jordan_method import jordan
 from utils import file_len
 
 if __name__ == "__main__":
@@ -18,22 +18,14 @@ if __name__ == "__main__":
     print("Content: " + str(spl))
     print("\n\n")
 
-    wspolczynniki = []
-    wektor = []
+    matrix = []
 
     for i in range(number_of_rows):
-        if (i % 2 == 0):
-            helper = spl[i].split()
-            wspolczynniki.append(helper)
-        else:
-            wektor.append(spl[i])
+        helper = spl[i].split()
+        matrix.append(helper)
 
-    wsp = np.asarray(wspolczynniki, dtype = np.double)
-    wek = np.asarray(wektor, dtype = np.double)
+    mat = np.asarray(matrix, dtype = np.double)
 
-    print("Wspolczynniki:\n" + str(wsp))
-    print("Wektor:\n" + str(wek))
-    print("\n\n")
+    print("Macierz:\n" + str(mat))
 
-
-
+    jordan(mat)
